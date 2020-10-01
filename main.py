@@ -37,8 +37,8 @@ def creer_un_voyage(voyage):
         )
         del charges[:]
     else:
-        voyage = [charges[-1]]
-        del charges[-1]
+        voyage = [charges.pop()]
+
         if sum(voyage) > max_charge:
             envoyer(voyage)
         else:
