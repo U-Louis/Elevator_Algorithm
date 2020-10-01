@@ -1,93 +1,93 @@
 from random import *
 
-MaxCharge = 100
-NumberOfCharges = 10
-NumberOfVoyages = 0
-NumeroDuVoyage = [1]
-Charges = []
-Voyages = []
+max_charge = 100
+number_of_charges = 10
+number_of_voyages = 0
+numero_du_voyage = [1]
+charges = []
+voyages = []
 
 
-def CreateCharges():
+def create_charges():
     i = 0
     u = 0
-    while i < NumberOfCharges:
-        u = randint(1, MaxCharge)
+    while i < number_of_charges:
+        u = randint(1, max_charge)
         i += 1
-        Charges.append(u)
-    print("Charges générées : ", Charges[:])
+        charges.append(u)
+    print("Charges générées : ", charges[:])
     print(
         "Charge Totale : ",
-        sum(Charges),
+        sum(charges),
         "(voyages:",
-        int(sum(Charges) / MaxCharge),
+        int(sum(charges) / max_charge),
         "+)",
     )
-    Charges.sort()
-    print("Charges par ordre croissant : ", Charges[:])
+    charges.sort()
+    print("Charges par ordre croissant : ", charges[:])
     print("")
 
 
-def CreerBaseVoyages():
+def creer_base_voyages():
     i = 0
-    while i < NumberOfCharges:
-        Voyages.append([0])
+    while i < number_of_charges:
+        voyages.append([0])
         i += 1
 
 
-def CreerUnVoyage(voyage):
-    if sum(Charges) < MaxCharge:
+def creer_un_voyage(voyage):
+    if sum(charges) < max_charge:
         print(
             "Le dernier voyage contient :",
-            Charges[:],
+            charges[:],
             ", soit un total de :",
-            sum(Charges),
+            sum(charges),
         )
-        del Charges[:]
+        del charges[:]
     else:
-        voyage = [Charges[-1]]
-        del Charges[-1]
-        if sum(voyage) > MaxCharge:
-            Envoyer(voyage)
+        voyage = [charges[-1]]
+        del charges[-1]
+        if sum(voyage) > max_charge:
+            envoyer(voyage)
         else:
-            Peser(voyage)
+            peser(voyage)
 
 
-def Peser(voyage):
-    while sum(voyage) < MaxCharge:
-        AjouterPaquet(voyage)
+def peser(voyage):
+    while sum(voyage) < max_charge:
+        ajouter_paquet(voyage)
     else:
-        Envoyer(voyage)
+        envoyer(voyage)
 
 
-def Envoyer(voyage):
-    while sum(voyage) > MaxCharge:
-        SupprimerLeDernierPaquet(voyage)
+def envoyer(voyage):
+    while sum(voyage) > max_charge:
+        supprimer_le_dernier_paquet(voyage)
     print(
         "Le voyage",
-        sum(NumeroDuVoyage),
+        sum(numero_du_voyage),
         "contient :",
         voyage[:],
         ", soit un total de :",
         sum(voyage),
     )
-    NumeroDuVoyage.append(1)
+    numero_du_voyage.append(1)
 
 
-def AjouterPaquet(voyage):
-    voyage.append(Charges[0])
+def ajouter_paquet(voyage):
+    voyage.append(charges[0])
     voyage.sort()
-    del Charges[0]
+    del charges[0]
 
 
-def SupprimerLeDernierPaquet(voyage):
-    Charges.append(voyage[0])
-    Charges.sort()
+def supprimer_le_dernier_paquet(voyage):
+    charges.append(voyage[0])
+    charges.sort()
     del voyage[0]
 
 
-CreateCharges()
-CreerBaseVoyages()
+create_charges()
+creer_base_voyages()
 
-while Charges:
-    CreerUnVoyage(Voyages)
+while charges:
+    creer_un_voyage(voyages)
