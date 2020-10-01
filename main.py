@@ -11,9 +11,8 @@ voyages = []
 def create_charges():
     i = 0
     u = 0
-    while i < number_of_charges:
+    for i in range(number_of_charges):
         u = randint(1, max_charge)
-        i += 1
         charges.append(u)
     print("Charges générées : ", charges[:])
     print(
@@ -30,9 +29,8 @@ def create_charges():
 
 def creer_base_voyages():
     i = 0
-    while i < number_of_charges:
+    for i in range(number_of_charges):
         voyages.append([0])
-        i += 1
 
 
 def creer_un_voyage(voyage):
