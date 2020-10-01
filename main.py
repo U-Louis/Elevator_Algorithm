@@ -35,7 +35,7 @@ def creer_un_voyage(voyage):
             ", soit un total de :",
             sum(charges),
         )
-        del charges[:]
+        charges.clear()
     else:
         voyage = [charges.pop()]
 
