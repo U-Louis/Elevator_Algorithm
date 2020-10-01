@@ -9,11 +9,10 @@ voyages = []
 
 
 def create_charges():
-    i = 0
-    u = 0
-    for i in range(number_of_charges):
-        u = randint(1, max_charge)
-        charges.append(u)
+
+    for _ in range(number_of_charges):
+        charge = randint(1, max_charge)
+        charges.append(charge)
     print("Charges générées : ", charges[:])
     print(
         "Charge Totale : ",
