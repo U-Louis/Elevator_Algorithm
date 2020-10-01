@@ -27,12 +27,6 @@ def create_charges():
     print("")
 
 
-def creer_base_voyages():
-    i = 0
-    for i in range(number_of_charges):
-        voyages.append([0])
-
-
 def creer_un_voyage(voyage):
     if sum(charges) < max_charge:
         print(
@@ -85,7 +79,6 @@ def supprimer_le_dernier_paquet(voyage):
 
 
 create_charges()
-creer_base_voyages()
 
 while charges:
     creer_un_voyage(voyages)
